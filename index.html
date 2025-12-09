@@ -40,12 +40,24 @@
       width: 100%;
     }
 
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+
     h1 {
       font-size: 1.125rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       color: var(--sage);
-      margin-bottom: 3rem;
     }
 
     .statement {
@@ -95,7 +107,10 @@
 </head>
 <body>
   <main>
-    <h1>AMP LABS</h1>
+    <div class="header">
+      <img class="logo" src="assets/logo-sage.png" alt="Amp Labs logo">
+      <h1>AMP LABS</h1>
+    </div>
     <p class="statement">We build software for companies that want to move quickly to market.</p>
     <div class="expertise">
       <span>Health Care</span>
