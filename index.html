@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amp Labs</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --sage: #7d8c6e;
+      --sage-light: #9aab88;
+      --charcoal: #2d2d2d;
+      --warm-white: #faf9f7;
+      --taupe: #a89f91;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background-color: var(--warm-white);
+      color: var(--charcoal);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--sage);
+      margin-bottom: 3rem;
+    }
+
+    .statement {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 3rem;
+      color: var(--charcoal);
+    }
+
+    .expertise {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 4rem;
+    }
+
+    .expertise span {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--taupe);
+      border-radius: 2rem;
+      color: var(--charcoal);
+    }
+
+    .contact a {
+      font-size: 1.125rem;
+      color: var(--sage);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sage-light);
+      padding-bottom: 0.125rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .contact a:hover {
+      color: var(--charcoal);
+      border-color: var(--charcoal);
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--taupe);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>AMP LABS</h1>
+    <p class="statement">We build software for companies that want to move quickly to market.</p>
+    <div class="expertise">
+      <span>Health Care</span>
+      <span>Wellness</span>
+      <span>Memory Tech</span>
+      <span>Electric Transportation</span>
+    </div>
+    <div class="contact">
+      <a href="mailto:hello@helloamplabs.com">hello@helloamplabs.com</a>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Amp Labs
+  </footer>
+</body>
+</html>
