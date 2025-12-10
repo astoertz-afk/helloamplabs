@@ -69,6 +69,24 @@
       color: var(--charcoal);
     }
 
+    .rotating-text {
+      display: inline-block;
+      color: var(--sage);
+      font-weight: 500;
+      transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, width 0.4s ease-in-out;
+      white-space: nowrap;
+    }
+
+    .rotating-text.fade-out {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .rotating-text.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .expertise {
       display: flex;
       flex-wrap: wrap;
@@ -112,7 +130,7 @@
       <img class="logo" src="assets/logo-sage.png" alt="Amp Labs logo">
       <h1>AMP LABS</h1>
     </div>
-    <p class="statement">We build software for companies that want to move quickly to market.</p>
+    <p class="statement">We build software for <span class="rotating-text" data-words='["companies","teams","brands","people","ideas"]'>companies</span> that want to move quickly to market.</p>
     <div class="expertise">
       <span>Health Care</span>
       <span>Wellness</span>
@@ -126,5 +144,47 @@
   <footer>
     &copy; 2025 Amp Labs
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rotatingText = document.querySelector('.rotating-text');
+      const words = JSON.parse(rotatingText.dataset.words);
+      let currentIndex = 0;
+
+      function rotateWord() {
+        // Capture current width
+        const currentWidth = rotatingText.offsetWidth;
+        rotatingText.style.width = currentWidth + 'px';
+
+        rotatingText.classList.add('fade-out');
+
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % words.length;
+
+          // Measure new word width by temporarily removing width constraint
+          rotatingText.style.width = 'auto';
+          rotatingText.textContent = words[currentIndex];
+          const newWidth = rotatingText.offsetWidth;
+
+          // Reset to current width, then animate to new width
+          rotatingText.style.width = currentWidth + 'px';
+
+          // Force reflow to ensure transition happens
+          rotatingText.offsetWidth;
+
+          // Trigger smooth width transition
+          rotatingText.style.width = newWidth + 'px';
+
+          rotatingText.classList.remove('fade-out');
+          rotatingText.classList.add('fade-in');
+
+          setTimeout(() => {
+            rotatingText.classList.remove('fade-in');
+          }, 400);
+        }, 400);
+      }
+
+      setInterval(rotateWord, 4000);
+    });
+  </script>
 </body>
 </html>
